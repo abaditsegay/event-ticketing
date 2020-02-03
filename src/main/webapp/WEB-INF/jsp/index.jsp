@@ -4,13 +4,9 @@
 <html lang="en">
 <head>
 
-<link rel="stylesheet" type="text/css"
-	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
 
-<!-- 
-	<spring:url value="/css/main.css" var="springCss" />
-	<link href="${springCss}" rel="stylesheet" />
-	 -->
 <c:url value="/css/main.css" var="jstlCss" />
 <link href="${jstlCss}" rel="stylesheet" />
 
@@ -18,7 +14,7 @@
 <body>
 
 	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-	<a href="#" class="pull-left"><img src="images/logo2.jpg"></a> 
+		<a href="#" class="pull-left"><img src="images/logo2.jpg"></a>
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">Event Ticketing</a>
@@ -26,9 +22,9 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">Concerts</a></li>
-					<li><a href="#about">Sports</a></li>
-					<li><a href="#about">Theater</a></li>
+					<li><a href="#concerts">Concerts</a></li>
+					<li><a href="#sports">Sports</a></li>
+					<li><a href="#theaters">Theater</a></li>
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
@@ -44,8 +40,7 @@
 	</div>
 	<!-- /.container -->
 
-	<script type="text/javascript"
-		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 
