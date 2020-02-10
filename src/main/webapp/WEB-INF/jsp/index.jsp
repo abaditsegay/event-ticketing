@@ -4,44 +4,31 @@
 <html lang="en">
 <head>
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet">
-
-<c:url value="/css/main.css" var="jstlCss" />
-<link href="${jstlCss}" rel="stylesheet" />
-
+<link href="css/main.css" rel="stylesheet" />
 </head>
 <body>
-
-	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-		<a href="#" class="pull-left"><img src="images/logo2.jpg"></a>
+	<nav class="navbar navbar-light">
 		<div class="container">
+			<a href="#" class="pull-left"><img src="images/logo3.jpg"
+				id="logo"></a>
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Event Ticketing</a>
+				<a class="navbar-brand" href="#">NatnaTicket</a>
 			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#concerts">Concerts</a></li>
-					<li><a href="#sports">Sports</a></li>
-					<li><a href="#theaters">Theater</a></li>
-					<li><a href="#about">About</a></li>
-				</ul>
-			</div>
+			<%@ include file="header.jsp"%>
 		</div>
 	</nav>
 
-	<div class="container">
-
-		<div class="starter-template">
-			<h2>${message}</h2>
-		</div>
-
+	<div class="container text-center">
+		<%@include file="search.jsp"%>
+		<%@ include file="landingpage_events.jsp"%>
+		<!-- footer -->
+		<%@ include file="footer.jsp"%>
 	</div>
-	<!-- /.container -->
 
 	<script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>
