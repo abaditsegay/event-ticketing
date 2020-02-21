@@ -1,5 +1,3 @@
 # event-ticketing
 
-Testing Building
-
 
