@@ -1,4 +1,4 @@
-package com.ethiosolutions.ticketing;
+package com.natnasolutions.ticketing;
 
 import java.util.Map;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ethiosolutions.ticketing.models.User;
+import com.natnasolutions.ticketing.models.User;
 
 @Controller
 public class IndexController {
