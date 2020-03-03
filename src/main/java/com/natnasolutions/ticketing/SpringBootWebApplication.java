@@ -1,4 +1,4 @@
-package com.ethiosolutions.ticketing;
+package com.natnasolutions.ticketing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
