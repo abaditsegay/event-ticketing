@@ -36,45 +36,42 @@ public class UserRoleController {
 
 	private static final Logger logger = LogManager.getLogger(UserRoleController.class);
 
-	/*@Autowired
-	private UserRoleService userRoleService;*/
+	@Autowired
+	private UserRoleService userRoleService;
 
-	/*@GetMapping(path = "/userRole")
-	public List<UserRole> getAll() {
-		return userRoleService.getAllUserRoles();
-	}
-
+	/*
+	 * @GetMapping(path = "/userRole") public List<UserRole> getAll() { return
+	 * userRoleService.getAllUserRoles(); }
+	 */
 	@PostMapping(path = "/userRole")
 	public HttpStatus insertUserRole(@RequestBody UserRole userRole) {
 		return userRoleService.addUserRole(userRole) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
 	}
+	/*
+	 * @PutMapping(path = "/userRole") public HttpStatus
+	 * updateUserRole(@RequestBody UserRole userRole) { return
+	 * userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED :
+	 * HttpStatus.BAD_REQUEST; }
+	 * 
+	 * @PatchMapping(path = "/userRole") public HttpStatus
+	 * patchUserRole(@RequestBody UserRole userRole) { return
+	 * userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED :
+	 * HttpStatus.BAD_REQUEST; }
+	 */
 
-	@PutMapping(path = "/userRole")
-	public HttpStatus updateUserRole(@RequestBody UserRole userRole) {
-		return userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
-	}
-
-	@PatchMapping(path = "/userRole")
-	public HttpStatus patchUserRole(@RequestBody UserRole userRole) {
-		return userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
-	}*/
-
-	/*@DeleteMapping(path = "/user/{id}")
-	public HttpStatus deleteUserRole(@PathVariable Long id) {
-		userRoleService.deleteUserRole(id);
-		return HttpStatus.NO_CONTENT;
-	}
-
-	@GetMapping(path = "/user/{id}")
-	public User getAllUserRoles(@PathVariable Long id) {
-		return userRoleService.getById(id);
-	}
-
-	@GetMapping(path = "/userByName/{name}")
-	public List<User> getUsereRoleByName(@PathVariable String name) {
-		return userRoleService.findByName(name);
-	}
-*/
+	/*
+	 * @DeleteMapping(path = "/user/{id}") public HttpStatus
+	 * deleteUserRole(@PathVariable Long id) {
+	 * userRoleService.deleteUserRole(id); return HttpStatus.NO_CONTENT; }
+	 * 
+	 * @GetMapping(path = "/user/{id}") public User
+	 * getAllUserRoles(@PathVariable Long id) { return
+	 * userRoleService.getById(id); }
+	 * 
+	 * @GetMapping(path = "/userByName/{name}") public List<User>
+	 * getUsereRoleByName(@PathVariable String name) { return
+	 * userRoleService.findByName(name); }
+	 */
 	/*
 	 * @Autowired
 	 * 

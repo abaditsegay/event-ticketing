@@ -10,7 +10,7 @@ import com.natnasolutions.ticketing.model.UserRole;
 
 @Repository
 public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
-	public long createUserRole(UserRole userRole);
+	/*public long createUserRole(UserRole userRole);
 
 	public UserRole updateUserRole(UserRole userRole);
 
@@ -18,6 +18,6 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
 
 	public List<UserRole> getAllUserRoles();
 
-	public UserRole getUserRole(long id);
+	public UserRole getUserRole(long id);*/
 
 }
