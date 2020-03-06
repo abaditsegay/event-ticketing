@@ -6,46 +6,73 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ethionews.dao.UserRoleDao;
-import com.ethionews.model.UserRole;
-import com.ethionews.service.UserRoleService;
+import com.natnasolutions.ticketing.model.User;
+import com.natnasolutions.ticketing.model.UserRole;
+import com.natnasolutions.ticketing.repository.UserRoleRepository;
+import com.natnasolutions.ticketing.service.UserRoleService;
 
 @Service("userRoleService")
 @Transactional
 public class UserRoleServiceImpl implements UserRoleService {
 
-	@Autowired
-	private UserRoleRepository userRoleDao;
+	/*@Autowired
+	private UserRoleRepository userRoleRepository;
 
-	@Override
 	public long createUserRole(UserRole userRole) {
-		return userRoleDao.createUserRole(userRole);
+		return userRoleRepository.createUserRole(userRole);
 	}
 
-	@Override
 	public UserRole updateUserRole(UserRole userRole) {
-		return userRoleDao.updateUserRole(userRole);
+		return userRoleRepository.updateUserRole(userRole);
 	}
 
-	@Override
 	public void deleteUserRole(long id) {
-		userRoleDao.deleteUserRole(id);
+		userRoleRepository.deleteUserRole(id);
 
+	}
+*/
+	/*public List<UserRole> getAllUserRoles() {
+		return userRoleRepository.getAllUserRoles();
+	}*/
+
+	/*public UserRole getUserRole(long id) {
+		return userRoleRepository.getUserRole(id);
 	}
 
 	@Override
-	public List<UserRole> getAllUserRoles() {
-		return userRoleDao.getAllUserRoles();
+	public List<User> getAllUserRoles() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public UserRole getUserRole(long id) {
-		return userRoleDao.getUserRole(id);
+	public boolean addUserRole(User user) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public List<UserRole> getAllUserRoles(String roleType) {
-		return userRoleDao.getAllUserRoles(roleType);
+	public boolean updateUserRole(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}*/
+
+	/*@Override
+	public void deleteUserRole(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
+
+	@Override
+	public User getById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 
 }

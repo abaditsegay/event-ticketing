@@ -7,7 +7,7 @@ import com.natnasolutions.ticketing.model.UserRole;
 
 public interface UserRoleService {
 
-	List<User> getAllUserRoles();
+	/*List<User> getAllUserRoles();
 
 	boolean addUserRole(User user);
 
@@ -18,7 +18,7 @@ public interface UserRoleService {
 	User getById(Long id);
 
 	List<User> findByName(String name);
-	
+	*/
 	
 	
 }

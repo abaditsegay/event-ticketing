@@ -36,30 +36,30 @@ public class UserRoleController {
 
 	private static final Logger logger = LogManager.getLogger(UserRoleController.class);
 
-	@Autowired
-	private UserRoleService userRoleService;
+	/*@Autowired
+	private UserRoleService userRoleService;*/
 
-	@GetMapping(path = "/userRole")
-	public List<User> getAll() {
+	/*@GetMapping(path = "/userRole")
+	public List<UserRole> getAll() {
 		return userRoleService.getAllUserRoles();
 	}
 
 	@PostMapping(path = "/userRole")
-	public HttpStatus insertUserRole(@RequestBody User user) {
-		return userRoleService.addUserRole(user) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
+	public HttpStatus insertUserRole(@RequestBody UserRole userRole) {
+		return userRoleService.addUserRole(userRole) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
 	}
 
 	@PutMapping(path = "/userRole")
-	public HttpStatus updateUserRole(@RequestBody User user) {
-		return userRoleService.updateUserRole(user) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
+	public HttpStatus updateUserRole(@RequestBody UserRole userRole) {
+		return userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
 	}
 
 	@PatchMapping(path = "/userRole")
-	public HttpStatus patchUserRole(@RequestBody User user) {
-		return userRoleService.updateUserRole(user) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
-	}
+	public HttpStatus patchUserRole(@RequestBody UserRole userRole) {
+		return userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
+	}*/
 
-	@DeleteMapping(path = "/user/{id}")
+	/*@DeleteMapping(path = "/user/{id}")
 	public HttpStatus deleteUserRole(@PathVariable Long id) {
 		userRoleService.deleteUserRole(id);
 		return HttpStatus.NO_CONTENT;
@@ -74,7 +74,7 @@ public class UserRoleController {
 	public List<User> getUsereRoleByName(@PathVariable String name) {
 		return userRoleService.findByName(name);
 	}
-
+*/
 	/*
 	 * @Autowired
 	 * 

@@ -21,9 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.natnasolutions.ticketing.model.User;
 import com.natnasolutions.ticketing.service.UserService;
-import com.natnasolutions.ticketing.validator.UserPasswordChangeValidator;
-import com.natnasolutions.ticketing.validator.UserPasswordResetValidator;
-import com.natnasolutions.ticketing.validator.UserRegistrationValidator;
+
 
 @RestController
 public class UserController {
@@ -38,7 +36,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping(path = "/user")
+	/*@GetMapping(path = "/user")
 	public List<User> getAll() {
 		return userService.getAllUsers();
 	}
@@ -72,7 +70,7 @@ public class UserController {
 	@GetMapping(path = "/userByName/{name}")
 	public List<User> getUsereByName(@PathVariable String name) {
 		return userService.findByName(name);
-	}
+	}*/
 
 	/*
 	 * @RequestMapping(value = "/createUser", method = RequestMethod.GET)

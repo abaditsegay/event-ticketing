@@ -1,5 +1,7 @@
 package com.natnasolutions.ticketing.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -9,15 +11,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.Random;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.multipart.MultipartFile;
 
 public class TicketUtil {
-	private static final LogManager logger = Logger.getLogger(TicketUtil.class);
+	private static final Logger logger = LogManager.getLogger(TicketUtil.class);
 
 	private TicketUtil() {
 		throw new IllegalStateException("EthioUtil class");

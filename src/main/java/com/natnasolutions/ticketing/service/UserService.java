@@ -6,7 +6,7 @@ import com.natnasolutions.ticketing.model.User;
 
 public interface UserService {
 
-	List<User> getAllUsers();
+	/*List<User> getAllUsers();
 
 	boolean addUser(User user);
 
@@ -17,7 +17,7 @@ public interface UserService {
 	List<User> findByName(String name);
 
 	boolean updateUser(User user);
-
+*/
 	/*
 	 * public long createUser(User user);
 	 * 

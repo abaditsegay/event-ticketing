@@ -10,7 +10,9 @@ import com.natnasolutions.ticketing.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	public long createUser(User user);
+	
+	
+	/*public long createUser(User user);
 
 	public User updateUser(User user);
 
@@ -21,4 +23,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	List<User> getAllUsers(String username);
 
 	public List<User> findByFirstName(String name);
+
+	public void delete(Long userId);*/
 }
