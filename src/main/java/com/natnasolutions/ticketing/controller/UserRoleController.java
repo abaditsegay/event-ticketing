@@ -25,13 +25,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.natnasolutions.ticketing.model.User;
 import com.natnasolutions.ticketing.model.UserRole;
 import com.natnasolutions.ticketing.service.UserRoleService;
 
-@Controller
+@RestController
 public class UserRoleController {
 
 	private static final Logger logger = LogManager.getLogger(UserRoleController.class);
@@ -43,7 +44,7 @@ public class UserRoleController {
 	 * @GetMapping(path = "/userRole") public List<UserRole> getAll() { return
 	 * userRoleService.getAllUserRoles(); }
 	 */
-	@PostMapping(path = "/userRole")
+	@PostMapping(path = "/userrole")
 	public HttpStatus insertUserRole(@RequestBody UserRole userRole) {
 		return userRoleService.addUserRole(userRole) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
 	}
