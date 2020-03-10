@@ -50,6 +50,13 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Need this to generate the getter and setters -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- Need this to compile JSP -->
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
