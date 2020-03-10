@@ -25,19 +25,6 @@ public class DataSourceConfig {
 	@Autowired
 	private Environment env;
 
-	/*
-	 * @Bean(name = "mySqlDataSource")
-	 * 
-	 * @Primary public DataSource mySqlDataSource() { DataSourceBuilder
-	 * dataSourceBuilder = DataSourceBuilder.create();
-	 * dataSourceBuilder.driverClassName(env.getRequiredProperty(
-	 * "database.driverClass"));
-	 * dataSourceBuilder.url(env.getRequiredProperty("database.url"));
-	 * dataSourceBuilder.username(env.getRequiredProperty("database.username"));
-	 * dataSourceBuilder.password(env.getRequiredProperty("database.password"));
-	 * return dataSourceBuilder.build(); }
-	 */
-
 	@Bean
 	LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean lfb = new LocalContainerEntityManagerFactoryBean();
@@ -51,7 +38,7 @@ public class DataSourceConfig {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(env.getRequiredProperty("database.driverClass"));
+		// dataSource.setDriverClassName(env.getRequiredProperty("database.driverClass"));
 		dataSource.setUrl(env.getRequiredProperty("database.url"));
 		dataSource.setUsername(env.getRequiredProperty("database.username"));
 		dataSource.setPassword(env.getRequiredProperty("database.password"));

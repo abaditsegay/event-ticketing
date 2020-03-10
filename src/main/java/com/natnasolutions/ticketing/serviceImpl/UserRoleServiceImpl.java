@@ -1,7 +1,9 @@
 package com.natnasolutions.ticketing.serviceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,45 +23,31 @@ public class UserRoleServiceImpl implements UserRoleService {
 	public boolean addUserRole(UserRole userRole) {
 		return userRoleRepository.save(userRole) != null;
 	}
-	/*
-	 * public UserRole updateUserRole(UserRole userRole) { return
-	 * userRoleRepository.updateUserRole(userRole); }
-	 * 
-	 * public void deleteUserRole(long id) {
-	 * userRoleRepository.deleteUserRole(id);
-	 * 
-	 * }
-	 */
-	/*
-	 * public List<UserRole> getAllUserRoles() { return
-	 * userRoleRepository.getAllUserRoles(); }
-	 */
 
-	/*
-	 * public UserRole getUserRole(long id) { return
-	 * userRoleRepository.getUserRole(id); }
-	 * 
-	 * @Override public List<User> getAllUserRoles() { // TODO Auto-generated
-	 * method stub return null; }
-	 * 
-	 * @Override public boolean addUserRole(User user) { // TODO Auto-generated
-	 * method stub return false; }
-	 * 
-	 * @Override public boolean updateUserRole(User user) { // TODO
-	 * Auto-generated method stub return false; }
-	 */
+	public List<UserRole> getAllUserRoles() {
+		return userRoleRepository.findAll();
+	}
 
-	/*
-	 * @Override public void deleteUserRole(Long id) { // TODO Auto-generated
-	 * method stub
-	 * 
-	 * }
-	 * 
-	 * @Override public User getById(Long id) { // TODO Auto-generated method
-	 * stub return null; }
-	 * 
-	 * @Override public List<User> findByName(String name) { // TODO
-	 * Auto-generated method stub return null; }
-	 */
+	@Override
+	public boolean updateUserRole(UserRole userRole) {
+		return userRoleRepository.save(userRole) != null;
+	}
+
+	@Override
+	public void deleteUserRole(Long id) {
+		userRoleRepository.deleteById(id);
+
+	}
+
+	@Override
+	public Optional<UserRole> getUserRole(Long id) {
+		return userRoleRepository.findById(id);
+	}
+
+	@Override
+	public List<UserRole> getUsereRoleByType(String roletype) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
