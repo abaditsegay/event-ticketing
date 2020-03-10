@@ -17,3 +17,5 @@ libs/
 .settings/
 .vscode/
 .DS_Store
+.factorypath
+.springBeans
