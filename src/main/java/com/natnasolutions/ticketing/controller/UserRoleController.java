@@ -72,9 +72,10 @@ public class UserRoleController {
 		return userRoleService.getUserRole(id);
 	}
 
-	@GetMapping(path = "/userrole/{roletype}")
-	public List<UserRole> getUsereRoleByType(@PathVariable String roletype) {
-		return userRoleService.getUsereRoleByType(roletype);
-	}
+	/*
+	 * @GetMapping(path = "/userrole/{roletype}") public List<UserRole>
+	 * getUsereRoleByType(@PathVariable String roletype) { return
+	 * userRoleService.getUsereRoleByType(roletype); }
+	 */
 
 }
