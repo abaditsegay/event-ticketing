@@ -10,10 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
+
+@Data
 @Entity
+@Table(name="ticketCategory")
 public class TicketCategory implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,52 +42,5 @@ public class TicketCategory implements Serializable{
 	@Column(name = "updated_time")
 	private Date updatedTime;
 
-	public Event getEvent() {
-		return event;
-	}
-
-	public void setEvent(Event event) {
-		this.event = event;
-	}
-
-	public String getCategoryName() {
-		return categoryName;
-	}
-
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
-
-	public long getTotalSeats() {
-		return totalSeats;
-	}
-
-	public void setTotalSeats(long totalSeats) {
-		this.totalSeats = totalSeats;
-	}
-
-	public long getPrice() {
-		return price;
-	}
-
-	public void setPrice(long price) {
-		this.price = price;
-	}
-
-	public Date getCreatedTime() {
-		return createdTime;
-	}
-
-	public void setCreatedTime(Date createdTime) {
-		this.createdTime = createdTime;
-	}
-
-	public Date getUpdatedTime() {
-		return updatedTime;
-	}
-
-	public void setUpdatedTime(Date updatedTime) {
-		this.updatedTime = updatedTime;
-	}
 	
 }

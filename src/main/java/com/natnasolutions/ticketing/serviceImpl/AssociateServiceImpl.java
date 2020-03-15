@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.natnasolutions.ticketing.model.Associate;
 import com.natnasolutions.ticketing.repository.AssociateRepository;
 import com.natnasolutions.ticketing.service.AssociateService;
 
 @Service
+@Transactional
 public class AssociateServiceImpl implements AssociateService {
 
 	@Autowired
