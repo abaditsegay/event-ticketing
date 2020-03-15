@@ -1,37 +1,22 @@
 package com.natnasolutions.ticketing.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.natnasolutions.ticketing.model.User;
 import com.natnasolutions.ticketing.model.UserRole;
 
 public interface UserRoleService {
 
-	/*
-	 * List<User> getAllUserRoles();
-	 */
+	public List<UserRole> getAllUserRoles();
+
 	boolean addUserRole(UserRole userRole);
-	/*
-	 * boolean updateUserRole(User user);
-	 * 
-	 * void deleteUserRole(Long id);
-	 * 
-	 * User getById(Long id);
-	 * 
-	 * List<User> findByName(String name);
-	 */
+
+	public boolean updateUserRole(UserRole userRole);
+
+	public void deleteUserRole(Long id);
+
+	public Optional<UserRole> getUserRole(Long id);
+
+	public List<UserRole> getUsereRoleByType(String roletype);
 
 }
-/*
- * public long createUserRole(UserRole userRole);
- * 
- * public UserRole updateUserRole(UserRole userRole);
- * 
- * public void deleteUserRole(long id);
- * 
- * public List<UserRole> getAllUserRoles();
- * 
- * public UserRole getUserRole(long id);
- * 
- * public List<UserRole> getAllUserRoles(String roleType); }
- */

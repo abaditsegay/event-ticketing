@@ -16,73 +16,43 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
+import javax.validation.Constraint;
+import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.UniqueElements;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "UserRole")
 public class UserRole implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private long id;
-	private String roleType;
-	private Set<User> users = new HashSet<>();
-	private Date createDate;
-	private Date updateDate;
-
 	@Id
 	@Column(name = "id", nullable = false, unique = true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public long getId() {
-		return id;
-	}
+	private long id;
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	@NotEmpty(message = "RoleType is empty and please provide valid value")
 	@Column(name = "roleType", nullable = false, unique = true)
-	public String getRoleType() {
-		return roleType;
-	}
-
-	public void setRoleType(String roleType) {
-		this.roleType = roleType;
-	}
+	private String roleType;
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "userRoles", cascade = CascadeType.ALL)
-	public Set<User> getUsers() {
-		return users;
-	}
+	private Set<User> users = new HashSet<>();
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
-
-	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "createDate")
-	public Date getCreateDate() {
-		return createDate;
-	}
+	private Date createDate;
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	
 	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updateDate")
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
+	private Date updateDate;
 
 }

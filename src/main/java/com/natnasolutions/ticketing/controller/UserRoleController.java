@@ -1,11 +1,16 @@
 package com.natnasolutions.ticketing.controller;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.UniqueConstraint;
+import javax.validation.Valid;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +36,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.natnasolutions.ticketing.model.User;
 import com.natnasolutions.ticketing.model.UserRole;
 import com.natnasolutions.ticketing.service.UserRoleService;
+import com.natnasolutions.ticketing.util.RecordAlreadyFoundException;
 
 @RestController
 public class UserRoleController {
@@ -40,89 +46,35 @@ public class UserRoleController {
 	@Autowired
 	private UserRoleService userRoleService;
 
-	/*
-	 * @GetMapping(path = "/userRole") public List<UserRole> getAll() { return
-	 * userRoleService.getAllUserRoles(); }
-	 */
+	@GetMapping(path = "/userrole")
+	public List<UserRole> getAll() {
+		return userRoleService.getAllUserRoles();
+	}
+
 	@PostMapping(path = "/userrole")
-	public HttpStatus insertUserRole(@RequestBody UserRole userRole) {
+	public HttpStatus insertUserRole(@RequestBody @Valid UserRole userRole) {
 		return userRoleService.addUserRole(userRole) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
 	}
-	/*
-	 * @PutMapping(path = "/userRole") public HttpStatus
-	 * updateUserRole(@RequestBody UserRole userRole) { return
-	 * userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED :
-	 * HttpStatus.BAD_REQUEST; }
-	 * 
-	 * @PatchMapping(path = "/userRole") public HttpStatus
-	 * patchUserRole(@RequestBody UserRole userRole) { return
-	 * userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED :
-	 * HttpStatus.BAD_REQUEST; }
-	 */
 
-	/*
-	 * @DeleteMapping(path = "/user/{id}") public HttpStatus
-	 * deleteUserRole(@PathVariable Long id) {
-	 * userRoleService.deleteUserRole(id); return HttpStatus.NO_CONTENT; }
-	 * 
-	 * @GetMapping(path = "/user/{id}") public User
-	 * getAllUserRoles(@PathVariable Long id) { return
-	 * userRoleService.getById(id); }
-	 * 
-	 * @GetMapping(path = "/userByName/{name}") public List<User>
-	 * getUsereRoleByName(@PathVariable String name) { return
-	 * userRoleService.findByName(name); }
-	 */
-	/*
-	 * @Autowired
-	 * 
-	 * @Qualifier("userRoleValidator") private Validator validator;
-	 * 
-	 * @InitBinder private void initBinder(WebDataBinder binder) {
-	 * binder.setValidator(validator); }
-	 * 
-	 * @RequestMapping("createUserRole")
-	 * 
-	 * @ResponseBody public String createUserRole(@ModelAttribute UserRole
-	 * userRole) { logger.info("Creating UserRole. Data: " + userRole); return
-	 * "userRoleForm"; }
-	 * 
-	 * @RequestMapping("editUserRole")
-	 * 
-	 * @ResponseBody public UserRole editUserRole(@RequestParam long
-	 * id, @ModelAttribute UserRole userRole) {
-	 * logger.info("Updating the UserRole for the Id " + id); userRole =
-	 * userRoleService.getUserRole(id); return userRole; }
-	 * 
-	 * @RequestMapping("saveUserRole")
-	 * 
-	 * @ResponseBody public String saveUserRole(Model model, @Validated UserRole
-	 * userRole, BindingResult result) {
-	 * logger.info("Saving the UserRole. Data : " + userRole); // if userRole id
-	 * is 0 then creating the userRole other updating the // userRole String
-	 * returnVal = "redirect:getAllUserRoles"; if (result.hasErrors()) { return
-	 * "userRoleForm"; } else { if (userRole.getId() == 0) {
-	 * userRoleService.createUserRole(userRole); } else {
-	 * userRoleService.updateUserRole(userRole); } } return returnVal; }
-	 * 
-	 * @RequestMapping("deleteUserRole")
-	 * 
-	 * @ResponseBody public String deleteUserRole(@RequestParam long id) {
-	 * logger.info("Deleting the UserRole. Id : " + id);
-	 * userRoleService.deleteUserRole(id); return "redirect:getAllUserRoles"; }
-	 * 
-	 * @RequestMapping("getAllUserRoles")
-	 * 
-	 * @ResponseBody public List<UserRole> getAllUserRoles() {
-	 * logger.info("Getting the all UserRoles."); List<UserRole> userRoleList =
-	 * userRoleService.getAllUserRoles(); return userRoleList; }
-	 * 
-	 * @RequestMapping("searchUserRole")
-	 * 
-	 * @ResponseBody public List<UserRole>
-	 * searchUserRole(@RequestParam("roleType") String roleType) {
-	 * logger.info("Searching the UserRole. UserRole Names: " + roleType);
-	 * List<UserRole> userRoleList = userRoleService.getAllUserRoles(roleType);
-	 * return userRoleList; }
-	 */
+	@PutMapping(path = "/userrole")
+	public HttpStatus updateUserRole(@RequestBody UserRole userRole) {
+		return userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
+	}
+
+	@DeleteMapping(path = "/userrole/{id}")
+	public HttpStatus deleteUserRole(@PathVariable Long id) {
+		userRoleService.deleteUserRole(id);
+		return HttpStatus.NO_CONTENT;
+	}
+
+	@GetMapping(path = "/userrole/{id}")
+	public Optional<UserRole> getUserRole(@PathVariable Long id) {
+		return userRoleService.getUserRole(id);
+	}
+
+	@GetMapping(path = "/userrole/{roletype}")
+	public List<UserRole> getUsereRoleByType(@PathVariable String roletype) {
+		return userRoleService.getUsereRoleByType(roletype);
+	}
+
 }
