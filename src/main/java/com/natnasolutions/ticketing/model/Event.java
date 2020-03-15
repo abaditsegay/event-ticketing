@@ -13,10 +13,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
+
+@Data
 @Entity
+@Table(name="event")
 public class Event implements Serializable {
 
 	@Id
@@ -64,140 +69,4 @@ public class Event implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
 	private List<Ticket> tickets;
 	
-	public String getEventName() {
-		return eventName;
-	}
-
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
-	}
-
-	public String getEventDesc() {
-		return eventDesc;
-	}
-
-	public void setEventDesc(String eventDesc) {
-		this.eventDesc = eventDesc;
-	}
-
-	public String getEventType() {
-		return eventType;
-	}
-
-	public void setEventType(String eventType) {
-		this.eventType = eventType;
-	}
-
-	public Date getEventDate() {
-		return eventDate;
-	}
-
-	public void setEventDate(Date eventDate) {
-		this.eventDate = eventDate;
-	}
-
-	public Date getStartTime() {
-		return startTime;
-	}
-
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
-
-	public Date getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
-	}
-
-	public String getRegion() {
-		return region;
-	}
-
-	public void setRegion(String region) {
-		this.region = region;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getImageIcon() {
-		return imageIcon;
-	}
-
-	public void setImageIcon(String imageIcon) {
-		this.imageIcon = imageIcon;
-	}
-
-	public List<TicketCategory> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<TicketCategory> categories) {
-		this.categories = categories;
-	}
-
-	public long getTicketCateId() {
-		return ticketCateId;
-	}
-
-	public void setTicketCateId(long ticketCateId) {
-		this.ticketCateId = ticketCateId;
-	}
-
-	public Date getTicketOpenDate() {
-		return ticketOpenDate;
-	}
-
-	public void setTicketOpenDate(Date ticketOpenDate) {
-		this.ticketOpenDate = ticketOpenDate;
-	}
-
-	public String getEventStatus() {
-		return eventStatus;
-	}
-
-	public void setEventStatus(String eventStatus) {
-		this.eventStatus = eventStatus;
-	}
-
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Date getUpdatedDate() {
-		return updatedDate;
-	}
-
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-
-	public Owner getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Owner owner) {
-		this.owner = owner;
-	}
-
 }
