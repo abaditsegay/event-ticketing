@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.natnasolutions.ticketing.model.User;
+import com.natnasolutions.ticketing.model.Role;
 import com.natnasolutions.ticketing.repository.UserRepository;
+import com.natnasolutions.ticketing.repository.RoleRepository;
+import com.natnasolutions.ticketing.service.RoleService;
 import com.natnasolutions.ticketing.service.UserService;
 
 @Service("userService")
@@ -21,6 +24,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private RoleService userRoleService;
+
 	@Override
 	public List<User> getAllUsers() {
 		return userRepository.findAll();
@@ -28,6 +34,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean addUser(User user) {
+		Optional<Role> userRole = userRoleService.getUsereRoleByType("Admin2");
+		user.addRole(userRole.get());
+
 		return userRepository.save(user) != null;
 	}
 

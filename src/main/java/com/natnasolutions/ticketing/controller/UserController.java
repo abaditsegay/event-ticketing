@@ -57,12 +57,12 @@ public class UserController {
 		return userService.getUserById(id);
 	}
 
-	@GetMapping(path = "user/userByName/{name}")
+	@GetMapping(path = "user/username/{email}")
 	public List<User> getUsereByName(@PathVariable String name) {
 		return userService.findByName(name);
 	}
 
-	@GetMapping(path = "/user/userlogin")
+	@GetMapping(path = "/user/login")
 	public boolean signIn(@RequestBody User user) {
 		return false;
 	}
@@ -72,7 +72,7 @@ public class UserController {
 		return null;
 	}
 
-	@PostMapping(path = "user/updatepassword")
+	@PutMapping(path = "user/updatepassword")
 	public String updatePassword(@RequestBody User user) {
 		return null;
 	}

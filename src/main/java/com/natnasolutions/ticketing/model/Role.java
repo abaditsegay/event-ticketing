@@ -21,9 +21,9 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "UserRole")
+@Table(name = "Role")
 @EntityListeners(AuditingEntityListener.class)
-public class UserRole extends BaseEntity<String> implements Serializable {
+public class Role extends BaseEntity<String> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,7 +31,7 @@ public class UserRole extends BaseEntity<String> implements Serializable {
 	@Column(name = "roleType", nullable = false, unique = true)
 	private String roleType;
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "userRoles", cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Set<User> users = new HashSet<>();
 

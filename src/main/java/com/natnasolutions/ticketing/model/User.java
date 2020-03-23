@@ -9,10 +9,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -20,19 +18,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "User")
+@EntityListeners(AuditingEntityListener.class)
 public class User extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "id", nullable = false, unique = true)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
 	@Column(name = "username", unique = true, nullable = false)
 	private String username;
@@ -52,9 +50,11 @@ public class User extends BaseEntity implements Serializable {
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "UserAndRole", joinColumns = { @JoinColumn(name = "userId") }, inverseJoinColumns = {
 			@JoinColumn(name = "roleId") })
-	private Set<UserRole> userRoles = new HashSet<>();
+	@JsonIgnore
+	private Set<Role> roles = new HashSet<>();
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
 	private List<SubUser> subUsers = new ArrayList<>();
 
 	public void addSubUser(SubUser subUser) {
@@ -67,14 +67,14 @@ public class User extends BaseEntity implements Serializable {
 		subUser.setUser(this);
 	}
 
-	public void addUserRole(UserRole userRole) {
-		userRoles.add(userRole);
-		userRole.getUsers().add(this);
+	public void addRole(Role role) {
+		roles.add(role);
+		role.getUsers().add(this);
 	}
 
-	public void removeUserRole(UserRole userRole) {
-		userRoles.remove(userRole);
-		userRole.getUsers().remove(this);
+	public void removeRole(Role role) {
+		roles.remove(role);
+		role.getUsers().remove(this);
 	}
 
 	@Override

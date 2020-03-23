@@ -34,48 +34,47 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.natnasolutions.ticketing.model.User;
-import com.natnasolutions.ticketing.model.UserRole;
-import com.natnasolutions.ticketing.service.UserRoleService;
+import com.natnasolutions.ticketing.model.Role;
+import com.natnasolutions.ticketing.service.RoleService;
 import com.natnasolutions.ticketing.util.RecordAlreadyFoundException;
 
 @RestController
-public class UserRoleController {
+public class RoleController {
 
-	private static final Logger logger = LogManager.getLogger(UserRoleController.class);
+	private static final Logger logger = LogManager.getLogger(RoleController.class);
 
 	@Autowired
-	private UserRoleService userRoleService;
+	private RoleService roleService;
 
-	@GetMapping(path = "/userrole")
-	public List<UserRole> getAll() {
-		return userRoleService.getAllUserRoles();
+	@GetMapping(path = "/role")
+	public List<Role> getAll() {
+		return roleService.getAllUserRoles();
 	}
 
-	@PostMapping(path = "/userrole")
-	public HttpStatus insertUserRole(@RequestBody @Valid UserRole userRole) {
-		return userRoleService.addUserRole(userRole) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
+	@PostMapping(path = "/role")
+	public HttpStatus insertUserRole(@RequestBody @Valid Role role) {
+		return roleService.addUserRole(role) ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
 	}
 
-	@PutMapping(path = "/userrole")
-	public HttpStatus updateUserRole(@RequestBody UserRole userRole) {
-		return userRoleService.updateUserRole(userRole) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
+	@PutMapping(path = "/role")
+	public HttpStatus updateUserRole(@RequestBody Role role) {
+		return roleService.updateUserRole(role) ? HttpStatus.ACCEPTED : HttpStatus.BAD_REQUEST;
 	}
 
-	@DeleteMapping(path = "/userrole/{id}")
+	@DeleteMapping(path = "/role/{id}")
 	public HttpStatus deleteUserRole(@PathVariable Long id) {
-		userRoleService.deleteUserRole(id);
+		roleService.deleteUserRole(id);
 		return HttpStatus.NO_CONTENT;
 	}
 
-	@GetMapping(path = "/userrole/{id}")
-	public Optional<UserRole> getUserRole(@PathVariable Long id) {
-		return userRoleService.getUserRole(id);
+	@GetMapping(path = "/role/{id}")
+	public Optional<Role> getUserRole(@PathVariable Long id) {
+		return roleService.getUserRole(id);
 	}
 
-	/*
-	 * @GetMapping(path = "/userrole/{roletype}") public List<UserRole>
-	 * getUsereRoleByType(@PathVariable String roletype) { return
-	 * userRoleService.getUsereRoleByType(roletype); }
-	 */
+	@GetMapping(path = "/role/roletype/{roletype}")
+	public Optional<Role> getUsereRoleByType(@PathVariable("roletype") String roletype) {
+		return roleService.getUsereRoleByType(roletype);
+	}
 
 }

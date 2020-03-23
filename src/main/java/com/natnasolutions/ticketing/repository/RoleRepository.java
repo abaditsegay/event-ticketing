@@ -7,15 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.natnasolutions.ticketing.model.Event;
 import com.natnasolutions.ticketing.model.User;
 import com.natnasolutions.ticketing.model.Role;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
-	public User findByUsername(String username);
-
-	@Query(value = "SELECT * FROM user WHERE username = :username AND password = :password", nativeQuery = true)
-	public List<User> authenticateUser(@Param("username") String username, @Param("password") String password);
+	@Query(value = "SELECT * FROM userrole WHERE roleType = :roleType", nativeQuery = true)
+	public List<Role> getUserRoles(@Param("roleType") String roleType);
 
 }
