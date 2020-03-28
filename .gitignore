@@ -19,3 +19,30 @@ libs/
 .DS_Store
 .factorypath
 .springBeans
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+fronend/dist
+fronend//tmp
+fronend//out-tsc
+
+# dependencies
+fronend/node_modules
+
+# profiling files
+fronend/chrome-profiler-events.json
+fronend/speed-measure-plugin.json
+
+# IDE - VSCode
+fronend/.vscode/*
+fronend/!.vscode/settings.json
+fronend/!.vscode/tasks.json
+fronend/!.vscode/launch.json
+fronend/!.vscode/extensions.json
+
+
+# System Files
+fronend/.DS_Store
+fronend/Thumbs.db
+
