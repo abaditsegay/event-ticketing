@@ -24,8 +24,8 @@ libs/
 
 # compiled output
 fronend/dist
-fronend//tmp
-fronend//out-tsc
+fronend/tmp
+fronend/out-tsc
 
 # dependencies
 fronend/node_modules
